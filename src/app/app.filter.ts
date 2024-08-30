@@ -11,14 +11,14 @@ const leaveBtn = Markup.inlineKeyboard([
 
 @Catch()
 export class AppFilter implements TelegrafExceptionFilter {
-  catch(exception: unknown, host: ArgumentsHost) {
+  async catch(exception: unknown, host: ArgumentsHost) {
     const ctx = host.getArgs().find((a) => a instanceof Context);
 
     if (exception instanceof AppException) {
-      ctx.reply(exception.message, leaveBtn);
+      await ctx.reply(exception.message, leaveBtn);
       return;
     }
 
-    ctx.reply('Неизвестная ошибка', leaveBtn);
+    await ctx.reply('Неизвестная ошибка', leaveBtn);
   }
 }

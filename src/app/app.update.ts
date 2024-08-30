@@ -19,6 +19,7 @@ export class AppUpdate {
   @Action(SceneAction.LEAVE_SCENE)
   async leave(@Ctx() ctx: SceneContext) {
     await ctx.scene.leave();
+    await ctx.answerCbQuery();
     await ctx.scene.enter(APP_SCENE_ID);
   }
 }

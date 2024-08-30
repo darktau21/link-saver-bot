@@ -63,6 +63,7 @@ export class ViewLinksScene {
       formatPaginationPage(formatLinks(links), page, totalPages),
       page >= totalPages ? maxLimitPaginationKeyboard() : paginationKeyboard()
     );
+    await ctx.answerCbQuery();
   }
 
   @Action(PaginationAction.PREV_PAGE)
@@ -78,6 +79,7 @@ export class ViewLinksScene {
       formatPaginationPage(formatLinks(links), page, totalPages),
       page <= 1 ? minLimitPaginationKeyboard() : paginationKeyboard()
     );
+    await ctx.answerCbQuery();
   }
 }
 

@@ -34,6 +34,7 @@ export class RemoveLinkScene {
     await this.linkService.removeAll(userId);
 
     await ctx.reply('Все добавленные вами ссылки удалены', removeLinkKeyboard);
+    await ctx.answerCbQuery();
     await ctx.scene.reenter();
   }
 

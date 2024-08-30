@@ -12,15 +12,18 @@ export class LinkUpdate {
   @Action(LinkAction.ADD_LINK)
   async addLink(@Ctx() ctx: SceneContext) {
     await ctx.scene.enter(ADD_LINK_SCENE_ID);
+    await ctx.answerCbQuery();
   }
 
   @Action(LinkAction.VIEW_LINKS)
   async viewLinks(@Ctx() ctx: SceneContext) {
     await ctx.scene.enter(VIEW_LINKS_SCENE_ID);
+    await ctx.answerCbQuery();
   }
 
   @Action(LinkAction.REMOVE_LINK)
   async removeLinks(@Ctx() ctx: SceneContext) {
     await ctx.scene.enter(REMOVE_LINK_SCENE_ID);
+    await ctx.answerCbQuery();
   }
 }
